@@ -1,0 +1,2 @@
+# pygame
+ini file pygame
