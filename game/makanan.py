@@ -1,0 +1,2 @@
+class makanan():
+    pass
