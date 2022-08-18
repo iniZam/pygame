@@ -17,9 +17,12 @@ while jalan:
 
     # update
     keys = pygame.key.get_pressed()# ini akan mengambil semua inputan dari keyboard
-    arena.gambar_garis()
-    kepala.gerak(1,0)
+    for key in keys:
+        if keys[pygame.K_RIGHT]:
+            kepala.gerak(1,0)
     #render
+    arena.gambar_garis()
+    
     arena.render()
    
    
