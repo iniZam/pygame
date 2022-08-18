@@ -21,7 +21,9 @@ class Arena ():
             pygame.draw.line(self.kertas,(0,0,0),(x,0),(x,self.tinggi_arena))
             pygame.draw.line(self.kertas,(0,0,0),(0,y),(self.lebar_arena,y))
     
-    def render (self):
+    def render (self,delay_ms):
+        self.delay_ms = delay_ms
         self.kertas.fill((255,255,255))     
         self.gambar_garis()       
         pygame.display.update()
+        pygame.time.delay(delay_ms)# ini untuk memberi delay agar ular berjalan tidak terlalu cepat
