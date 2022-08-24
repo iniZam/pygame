@@ -23,7 +23,7 @@ while jalan:
     #render
     arena.gambar_garis()
     
-    arena.render()
+    arena.render(60)
    
    
 

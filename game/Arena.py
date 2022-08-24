@@ -7,23 +7,24 @@ class Arena ():
         self.tinggi_arena = tinggi_arena
         self.baris = baris
         self.kolom = kolom
-        self.kertas =pygame.display.set_mode((self.lebar_arena,self.tinggi_arena))
+        self.surface =pygame.display.set_mode((self.lebar_arena,self.tinggi_arena))
+        self.jarak_baris = self.lebar_arena/self.baris
+        self.jarak_kolom = self.tinggi_arena/self.kolom
 
-
-    def gambar_garis(self):
+    def get_surface(self):
+        return self.surface
         
-        jarak_baris = self.lebar_arena/self.baris
-        jarak_kolom = self.tinggi_arena/self.kolom
+    def gambar_garis(self):
         for baris_kesekian in range (self.baris):
-            x= jarak_baris*baris_kesekian
-            y= jarak_kolom*baris_kesekian
+            x= self.jarak_baris*baris_kesekian
+            y= self.jarak_kolom*baris_kesekian
             #yang dalam kurung itu(tempat untuk meletakan garisnya(variabel window),warnanya,titik awal garis(posisi kordinat menggunakan sumbu x dan y),posisi akhir garinya (menggunakan kordinat x dan y juga))
-            pygame.draw.line(self.kertas,(0,0,0),(x,0),(x,self.tinggi_arena))
-            pygame.draw.line(self.kertas,(0,0,0),(0,y),(self.lebar_arena,y))
+            pygame.draw.line(self.surface,(0,0,0),(x,0),(x,self.tinggi_arena))
+            pygame.draw.line(self.surface,(0,0,0),(0,y),(self.lebar_arena,y))
     
     def render (self,delay_ms):
         self.delay_ms = delay_ms
-        self.kertas.fill((255,255,255))     
+        self.surface.fill((255,255,255))     
         self.gambar_garis()       
         pygame.display.update()
         pygame.time.delay(delay_ms)# ini untuk memberi delay agar ular berjalan tidak terlalu cepat
